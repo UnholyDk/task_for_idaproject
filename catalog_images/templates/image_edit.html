@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Изменить</title>
+</head>
+
+<body>
+    <a href="{% url 'home' %}">Назад к списку</a>
+    <h3>{{ image.name }}</h3>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Отправить</button>
+    </form>
+    <p></p>
+    {% if flag %}
+    <img src="{{ image }}" width="{{ width }}" height="{{ height }}">
+    {% else %}
+    <img src="{{ image.image.url }}" width="{{ image.image.width }}" height="{{ image.image.height }}">
+    {% endif %}
+</body>
+</html>

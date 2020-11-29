@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Добавить</title>
+</head>
+
+<body>
+    <a href="{% url 'home' %}">Назад к списку</a>
+    <h2>Новое изображение</h2>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Отправить</button>
+    </form>
+</body>
+</html>

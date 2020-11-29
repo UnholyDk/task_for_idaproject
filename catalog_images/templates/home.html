@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Изображения</title>
+</head>
+
+<body>
+    <h2>Список изображений</h2>
+        {% if images %}
+            {% for image in images %}
+            <p><a href="{% url 'image_edit' image.id %}">{{ image.name }}</a></p>
+            {% endfor %}
+        {% else %}
+            <p>Нет доступных изображений</p>
+        {% endif %}
+        <p><a href="{% url 'image_create' %}">Добавить изображение</a></p>
+</body>
+</html>
